@@ -2,7 +2,9 @@
 title: "P8105_Homework01"
 author: "Lin_Feng_lf2649"
 date: "September 19, 2020"
-output: github_document
+output: 
+  github_document:
+    toc: true
 ---
 
 
@@ -114,3 +116,17 @@ product_c_sample
 
 ```
   
+  
+  
+  
+  
+  
+  
+# Problem 2
+
+```{r}
+
+
+
+```
+
