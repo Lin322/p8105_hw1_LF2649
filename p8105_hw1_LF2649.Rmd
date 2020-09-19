@@ -24,6 +24,7 @@ This “problem” focuses on correct styling for your solutions to Problems 1 a
 
 # Problem 1
 
+
 Create a data frame comprised of:
 
 * random sample of size 10 from a standard Normal distribution
@@ -49,6 +50,8 @@ p1_df
 ```
 
 
+
+
 Try to take the mean of each variable in your dataframe. What works and what doesn’t?
 
  * R can caculate mean for mumeric and logical data, but cannot for character and foctor data. 
@@ -71,6 +74,8 @@ mean(vec_factor)
 
 ```
 
+
+
 In some cases, you can explicitly convert variables from one type to another. 
 Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). 
 What happens, and why? Does this help explain what happens when you try to take the mean?
@@ -84,3 +89,28 @@ as.numeric(vec_char)
 
 ```
 
+
+
+In a second code chunk:
+
+  * convert the logical vector to numeric, and multiply the random sample by the result
+  * convert the logical vector to a factor, and multiply the random sample by the result
+  * convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result
+  
+```{r}
+a = as.numeric(vec_numrc_pos)
+product_a_sample = a*vec_numrc
+product_a_sample
+
+
+b = as.factor(vec_numrc_pos)
+product_b_sample = b*vec_numrc
+product_b_sample
+
+c = as.numeric(b)
+product_c_sample = c*vec_numrc
+product_c_sample
+
+
+```
+  
