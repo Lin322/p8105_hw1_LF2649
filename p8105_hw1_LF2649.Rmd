@@ -135,7 +135,7 @@ Write a short description of the penguins dataset (not the penguins_raw dataset)
   * the data in this dataset, including names / values of important variables: 
     * There are `r nlevels(pull(penguins, species))`  kinds of penguins from `r nlevels(pull(penguins, island))` different islands in this dataset. 
   * the size of the dataset (using nrow and ncol): 
-    * There are totally `r ncol(penguins)` variables and `r nrow(penguins)` penguins/ sunjucts have been recorded. 
+    * There are totally `r ncol(penguins)` variables and `r nrow(penguins)` penguins/ subjects have been recorded. 
   * the mean of flipper length is `r mean(as.numeric(pull(penguins,flipper_length_mm))) ` mm. 
   
 *** 
@@ -144,7 +144,7 @@ Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x);
 color points using the species variable (adding color = ... inside of aes in your ggplot code should help).
 Export your first scatterplot to your project directory using ggsave.
 
-```{r message = FALSE}
+```{r message = FALSE }
 ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species)) + geom_point()
 
 ggsave("sactter_plot_hw01.pdf",height = 5, width = 8)
