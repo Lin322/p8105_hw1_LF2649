@@ -35,7 +35,7 @@ Create a data frame comprised of:
 * factor vector of length 10, with 3 different factor “levels”
 
 
-```{r problem_1 }
+```{r problem_1, message = FALSE}
 library(tidyverse)
 
 p1_df = tibble(
@@ -58,7 +58,7 @@ Try to take the mean of each variable in your dataframe. What works and what doe
 
  * R can caculate mean for mumeric and logical data, but cannot for character and foctor data. 
 
-```{r means}
+```{r means, message = FALSE}
 vec_numrc = rnorm(10, mean = 0, sd = 1)
 mean(vec_numrc)
 
@@ -125,8 +125,30 @@ product_c_sample
 # Problem 2
 
 ```{r}
-
-
-
+data("penguins", package = "palmerpenguins")
+penguins
 ```
+
+Write a short description of the penguins dataset (not the penguins_raw dataset) using inline R code, including:
+
+
+  * the data in this dataset, including names / values of important variables: 
+    * There are `r nlevels(pull(penguins, species))`  kinds of penguins from `r nlevels(pull(penguins, island))` different islands in this dataset. 
+  * the size of the dataset (using nrow and ncol): 
+    * There are totally `r ncol(penguins)` variables and `r nrow(penguins)` penguins/ sunjucts have been recorded. 
+  * the mean of flipper length is `r mean(as.numeric(pull(penguins,flipper_length_mm))) ` mm. 
+  
+*** 
+  
+Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); 
+color points using the species variable (adding color = ... inside of aes in your ggplot code should help).
+Export your first scatterplot to your project directory using ggsave.
+
+```{r message = FALSE}
+ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species)) + geom_point()
+
+ggsave("sactter_plot_hw01.pdf",height = 5, width = 8)
+```
+
+
 
