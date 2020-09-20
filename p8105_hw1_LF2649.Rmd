@@ -1,6 +1,6 @@
 ---
 title: "P8105_Homework01"
-author: "Lin_Feng_lf2649"
+author: "Lin_Feng_LF2649"
 date: "September 19, 2020"
 output: 
   github_document:
@@ -38,60 +38,56 @@ Create a data frame comprised of:
 ```{r problem_1, message = FALSE}
 library(tidyverse)
 
+# set the variables
+vec_numrc = rnorm(10, mean = 0, sd = 1)
+vec_numrc_pos = vec_numrc > 0
+vec_char = c("The", "character","vector","has","to","be","exactly","ten","words","here")
+vec_factor = factor(c("A","A","B","B","C","C","C","C","C","C"))
+
+
+# create the data frame
 p1_df = tibble(
- vec_numrc = rnorm(10, mean = 0, sd = 1),
- vec_numrc_pos = vec_numrc > 0,
- vec_char = c("The", "character","vector","has","to","be","exactly","ten","words","here"),
- vec_factor = factor(c("A","A","B","B","C","C","C","C","C","C"))
+  vec_numrc,
+  vec_numrc_pos,
+  vec_char,
+  vec_factor
 )
 
+# display the data frame
 p1_df
 
 
-
-```
-
-
-
-
-Try to take the mean of each variable in your dataframe. What works and what doesn’t?
-
- * R can caculate mean for mumeric and logical data, but cannot for character and foctor data. 
-
-```{r means, message = FALSE}
-vec_numrc = rnorm(10, mean = 0, sd = 1)
+# Try to take the mean of each variable in your dataframe. 
 mean(vec_numrc)
-
-
-vec_numrc_pos = vec_numrc > 0
 mean(vec_numrc_pos)
-
-
-vec_char = c("The", "character","vector","has","to","be","exactly","ten","words","here")
 mean(vec_char)
-
-
-vec_factor = factor(c("A","A","B","B","C","C","C","C","C","C"))
 mean(vec_factor)
 
+   
+
 ```
 
+To answer the question "What works and what doesn’t?":
+**R can calculate mean for numeric and logical data, but cannot do that for character and factor data.**
 
+
+
+***
 
 In some cases, you can explicitly convert variables from one type to another. 
 Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). 
 What happens, and why? Does this help explain what happens when you try to take the mean?
 
   * The transformation in fact gave the meaningless number for factor variables and cannot work for character variable. 
-  * This helped exlpain why the mean function cannot be applied to character variable, but cannot contribute to factor variable. 
+  * This helped explain why the mean function cannot be applied to character variable, but cannot contribute to factor variable. 
 
-```{r}
+```{r converting}
 as.numeric(vec_factor)
 as.numeric(vec_char)
 
 ```
 
-
+***
 
 In a second code chunk:
 
@@ -113,6 +109,7 @@ c = as.numeric(b)
 product_c_sample = c*vec_numrc
 product_c_sample
 
+#The data have changed after the converting. 
 
 ```
   
@@ -126,7 +123,7 @@ product_c_sample
 
 ```{r}
 data("penguins", package = "palmerpenguins")
-penguins
+
 ```
 
 Write a short description of the penguins dataset (not the penguins_raw dataset) using inline R code, including:
