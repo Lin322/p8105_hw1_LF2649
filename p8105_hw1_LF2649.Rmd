@@ -126,6 +126,12 @@ data("penguins", package = "palmerpenguins")
 
 ```
 
+```{r numericLength, echo = FALSE }
+x = as.numeric(penguins$flipper_length_mm) 
+y = mean(x, na.rm=T)
+
+```
+
 Write a short description of the penguins dataset (not the penguins_raw dataset) using inline R code, including:
 
 
@@ -133,7 +139,7 @@ Write a short description of the penguins dataset (not the penguins_raw dataset)
     * There are `r nlevels(pull(penguins, species))`  kinds of penguins from `r nlevels(pull(penguins, island))` different islands in this dataset. 
   * the size of the dataset (using nrow and ncol): 
     * There are totally `r ncol(penguins)` variables and `r nrow(penguins)` penguins/ subjects have been recorded. 
-  * the mean of flipper length is `r mean(as.numeric(pull(penguins,flipper_length_mm))) ` mm. 
+  * the mean of flipper length is `r round(y, digit = 1) ` mm. 
   
 *** 
   
