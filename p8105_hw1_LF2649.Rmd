@@ -68,7 +68,7 @@ mean(vec_factor)
 ```
 
 To answer the question "What works and what doesn’t?":
-**R can calculate mean for numeric and logical data, but cannot do that for character and factor data.**
+**mean(x) can calculate mean for numeric and logical data, but cannot do that for character and factor data.**
 
 
 
